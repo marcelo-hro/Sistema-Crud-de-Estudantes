@@ -1,15 +1,16 @@
 from django import forms
-from .models import Estudantes
+from estudantes.models import Estudante
 
-class EstudantesForm(forms.ModelForm):
+class EstudanteForm(forms.ModelForm):
     class Meta:
-        model = Estudantes
-        fields = ['nome', 'foto', 'email', 'senha', 'telefone', 'data_nascimento']
+        model = Estudante
+     #  fields = ['nome', 'foto', 'email', 'senha', 'telefone', 'data_nascimento']
+        fields = '__all__'
          
 
 
 
-def __init__(self, *args, **kwargs):
-    super(EstudantesForm, self).__init__(*args, **kwargs)
-    for visible in self.visible_fields():
-        visible.field.widget.attrs['class'] = 'form-control'   
+    def __init__(self, *args, **kwargs):
+        super(EstudanteForm, self).__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'   

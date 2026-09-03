@@ -1,13 +1,11 @@
 from django.http import request
 from django.shortcuts import render,redirect
-from .models import User
-from .forms import UserForm
+from estudantes.models import Estudante
+from estudantes.forms import EstudanteForm
 
 
-
-
-def listarEstudantes(resquest):
-    estudantes = Estudantes.objects.all()
+def listarEstudantes(request):
+    estudantes = Estudante.objects.all()
     dicionario = { 'registros': estudantes }
 
     return render(request, 'listagem.html',context=dicionario)
@@ -16,7 +14,7 @@ def listarEstudantes(resquest):
 
 def AdicionarEstudantes(request):
     dicionario={}
-    form = EstudantesForm(request.POST or None, request.FILES or None)
+    form = EstudanteForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
         return redirect('/')
@@ -26,27 +24,27 @@ def AdicionarEstudantes(request):
 
 
 def EditarEstudantes(request, id=None):
-    estudante = Estudantes.objects.get(pk=id)
-    form = EstudantesForm(request.POST or None, request.FILES or None, instance=estudante)
+    estudante = Estudante.objects.get(pk=id)
+    form = EstudanteForm(request.POST or None, request.FILES or None, instance=estudante)
     if form.is_valid():
         form.save()
         return redirect('/')
 
-    dicionario['form'] = form
+    dicionario ={'form': form}
     return render(request, 'editar.html',dicionario)
 
 
-def DeletarEstudantes(request, eid=None):
-    estudante = Estudantes.objects.get(pk=eid)
-   if request.method == 'POST':
-        estudante.delete()
-        return redirect('/')
-    return render(request, 'deletar.html')
+def DeletarEstudantes(request, id=None):
+    estudante = Estudante.objects.get(pk=id)
+   # if request.method == 'POST':
+    estudante.delete()
+    return redirect('/')
+       # return render(request, 'deletar.html')
 
 
-def VisualizarEstudantes(request, eid=None):
+def VisualizarEstudantes(request, id=None):
      dicionario = {}
-     estudante = Estudantes.objects.get(pk=eid)
+     estudante = Estudante.objects.get(pk=id)
      dicionario['estudante'] = estudante
      return render(request, 'visualizar.html''', dicionario)
 

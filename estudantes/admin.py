@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from estudantes.models import Estudantes
+from estudantes.models import Estudante
 
 
 
-admin.site.register(Estudantes)
+admin.site.register(Estudante)

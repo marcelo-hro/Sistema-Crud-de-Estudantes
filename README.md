@@ -23,7 +23,8 @@ Certifique-se de ter instalado em sua máquina:
 
 Abra o terminal na pasta desejada e clone o projeto:
 
-git clone https://github.com/marcelo-hro/econ.git
+git clone 
+
 cd econ
 
 ### 2. Criar e ativar o ambiente virtual (venv)

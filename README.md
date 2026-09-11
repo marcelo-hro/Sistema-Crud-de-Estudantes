@@ -1,4 +1,4 @@
-# Projeto Econ
+# Projeto Sistema Crud de Estudantes
 
 Repositório dedicado ao desenvolvimento da aplicação web Econ, desenvolvida utilizando o framework Django (Python).
 

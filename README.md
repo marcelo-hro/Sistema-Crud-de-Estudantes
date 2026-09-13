@@ -49,6 +49,7 @@ python -m venv venv
 Com a venv ativada, instale o Django e os pacotes necessários:
 
 pip install django
+pip install pillow
 
 Se houver um arquivo requirements.txt no repositório, execute:
 pip install -r requirements.txt

@@ -25,7 +25,8 @@ Abra o terminal na pasta desejada e clone o projeto:
 
 git clone 
 
-cd econ
+abra a pasta do projeto
+
 
 ### 2. Criar e ativar o ambiente virtual (venv)
 

@@ -8,4 +8,5 @@ class Estudante(models.Model):
     telefone=models.CharField(max_length=15)
     nascimento=models.DateField()
 
-   
+    def __str__(self):
+           return self.nome

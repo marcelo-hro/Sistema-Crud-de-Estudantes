@@ -9,6 +9,13 @@ class Professor(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class Departamento(models.Model):
+    nome = models.CharField(max_length=150)
+    codigo = models.IntegerField(max_length=10)
+    imagem = models.ImageField(upload_to= "fotos/curso")
+        
     
 class Curso(models.Model):
     codigo = models.IntegerField(max_length=2, primary_key=True)
@@ -17,6 +24,7 @@ class Curso(models.Model):
     duracao = models.DecimalField(max_digits=3, decimal_places=2)
     data_inicio = models.DateField(blank=True, )
     cargaHoraria = models.IntegerField()
+    departamento = models.ForeignKey(Departamento, on_delete=models.PROTECT, null= True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -37,8 +45,9 @@ class Disciplina(models.Model):
     turno = models.CharField(max_length=10)
     turma = models.ForeignKey(Turma,on_delete=models.CASCADE)
     professor = models.ForeignKey(Professor, on_delete=models.PROTECT)   
-    def __str__(self):
-        return self.nome
-    
 
     
+    def __str__(self):
+        return self.nome
+
+

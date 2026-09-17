@@ -15,6 +15,19 @@ urlpatterns = [
     path("deletar/professor/<id>/",views.DeletarProfessor, name="deletar_professor"),
     path("visualizar/professor/<id>/",views.VisualizarProfessor, name="visualizar_professor"),
 
+    path("listar/turma/",views.listarTurma, name="listagem_turma"),
+    path("adicionar/turma/",views.AdicionarTurma, name="adicionar_turma"),
+    path("editar/turma/<id>/",views.EditarTurma, name="editar_turma"),
+    path("deletar/turma/<id>/",views.DeletarTurma, name="deletar_turma"),
+    path("visualizar/turma/<id>/",views.VisualizarTurma, name="visualizar_turma"),
+
+    path("listar/disciplina/",views.listarDisciplina, name="listagem_disciplina"),
+    path("adicionar/disciplina/",views.adicionarDisciplina, name="adicionar_disciplina"),
+    path("editar/disciplina/<id>/",views.editarDisciplina, name="editar_disciplina"),
+    path("deletar/disciplina/<id>/",views.deletarDisciplina, name="deletar_disciplina"),
+    path("visualizar/disciplina/<id>/",views.visualizarDisciplina, name="visualizar_disciplina"),
+
+
 ]
 
 

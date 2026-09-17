@@ -6,6 +6,9 @@ class Professor(models.Model):
     nome = models.CharField(max_length=100)
     email = models.EmailField(max_length=200)
     cpf = models.CharField(max_length=14)
+
+    def __str__(self):
+        return self.nome
     
 class Curso(models.Model):
     codigo = models.IntegerField(max_length=2, primary_key=True)
@@ -15,11 +18,17 @@ class Curso(models.Model):
     data_inicio = models.DateField(blank=True, )
     cargaHoraria = models.IntegerField()
 
+    def __str__(self):
+        return self.nome
+
 class Turma(models.Model):
     codigo = models.CharField(max_length=15)
     anoIngresso = models.IntegerField(max_length=4)
     periodo = models.IntegerField(max_length=1)
     curso = models.ForeignKey(Curso, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.codigo
     
 class Disciplina(models.Model):
     codigo = models.IntegerField(max_length=3)
@@ -28,6 +37,8 @@ class Disciplina(models.Model):
     turno = models.CharField(max_length=10)
     turma = models.ForeignKey(Turma,on_delete=models.CASCADE)
     professor = models.ForeignKey(Professor, on_delete=models.PROTECT)   
+    def __str__(self):
+        return self.nome
     
 
     

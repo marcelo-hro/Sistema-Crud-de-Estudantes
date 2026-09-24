@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container mt-5 bg-light" style="border:1px solid ; background-color:#1111; border-radius: 10px;">
-    <h1 class="m-4 text-center">Registros de Departamentos <a href="/academico/adicionar/departamento/" class="btn btn-primary">Adicionar Departamento</a></h1>
+    <h1 class="m-4 text-center">Registros de Departamentos <a href="/adicionar/departamento/" class="btn btn-primary">Adicionar Departamento</a></h1>
     <table class="table table-bordered">
         <tr class="bg-info text-white text-center ">
             <td> Código </td>
@@ -20,9 +20,9 @@
             <td>{{ reg.codigo }}</td>
             <td>{{ reg.nome }}</td>
             <td><img src="/midia/{{ reg.imagem }}" class="rounded-circle" height="70px" width="70px"></td>
-            <td> <a href="/academico/editar/departamento/{{reg.codigo}}" class="btn btn-success">Editar</a>/
-                <a href="/academico/deletar/departamento/{{reg.codigo}}" class="btn btn-danger">Apagar</a>/
-                <a href="/academico/visualizar/departamento/{{reg.codigo}}" class="btn btn-primary">Ver</a>
+            <td> <a href="/editar/departamento/{{reg.codigo}}" class="btn btn-success">Editar</a>/
+                <a href="/deletar/departamento/{{reg.codigo}}" class="btn btn-danger">Apagar</a>/
+                <a href="/visualizar/departamento/{{reg.codigo}}" class="btn btn-primary">Ver</a>
             </td>
         </tr>
     {%endfor%}

@@ -9,13 +9,15 @@
 <div class="container mt-5 bg-light p-4 shadow-sm" style="max-width: 600px; border-radius: 10px; border: 1px solid #ccc;">
     <h1 class="text-center bg-primary text-white p-2 rounded mb-4">Novo Departamento</h1>
     
-    <form method="POST">
+     <form method="post" enctype="multipart/form-data">
+        {{form.as_p}}
+        
         {% csrf_token %}
-        {{ form.as_p }}
+     
         
         <div class="text-center mt-4">
-            <button type="submit" class="btn btn-success">Salvar Departamento</button>
-            <a href="/academico/listar/departamento/" class="btn btn-secondary">Cancelar</a>
+             <button type="submit" class="btn btn-primary">Salvar Departamento</button>
+            <a href="/listar/departamento/" class="btn btn-secondary">Cancelar</a>
         </div>
     </form>
 </div>

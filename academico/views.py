@@ -183,7 +183,7 @@ def adicionarDepartamento(request):
     return render(request, 'adicionar_departamento.html',dicionario)
 
 def editarDepartamento(request, id=None):
-    departamento = Departamento.objects.get(pk=id)
+    departamento = Departamento.objects.get(codigo=id)
     form = DepartamentoForm(request.POST or None, request.FILES or None, instance=departamento)
     if form.is_valid():
         form.save()
@@ -193,7 +193,7 @@ def editarDepartamento(request, id=None):
     return render(request, 'editar_departamento.html',dicionario)
 
 def deletarDepartamento(request, id=None):
-    departamento = Departamento.objects.get(pk=id)
+    departamento = Departamento.objects.get(codigo=id)
    # if request.method == 'POST':
     departamento.delete()
     return redirect('/academico/listar/departamento')
@@ -201,9 +201,12 @@ def deletarDepartamento(request, id=None):
 
 def visualizarDepartamento(request, id=None):
      dicionario = {}
-     departamento = Departamento.objects.get(pk=id)
+     departamento = Departamento.objects.get(codigo=id)
      dicionario['departamento'] = departamento
-     return render(request, 'visualizar_departamento.html', dicionario)           
+     return render(request, 'visualizar_departamento.html', dicionario)      
+
+def dashboard(request):
+    return render (request,'dashboard.html')     
        
        
 

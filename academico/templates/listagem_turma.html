@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container mt-5 bg-light" style="border:1px solid ; background-color:#1111; border-radius: 10px;">
-    <h1 class="m-4 text-center">Registros de Turmas <a href="/academico/adicionar/turma/" class="btn btn-primary">Adicionar Turma</a></h1>
+    <h1 class="m-4 text-center">Registros de Turmas <a href="/adicionar/turma/" class="btn btn-primary">Adicionar Turma</a></h1>
     <table class="table table-bordered">
         <tr class="bg-info text-white text-center">
             <td> ID </td>
@@ -25,9 +25,9 @@
             <td>{{ reg.periodo }}</td>
             <td>{{ reg.curso }}</td>
             <td> 
-                <a href="/academico/editar/turma/{{reg.id}}" class="btn btn-success">Editar</a> /
-                <a href="/academico/deletar/turma/{{reg.id}}" class="btn btn-danger">Apagar</a> /
-                <a href="/academico/visualizar/turma/{{reg.id}}" class="btn btn-primary">Ver</a>
+                <a href="/editar/turma/{{reg.id}}" class="btn btn-success">Editar</a> /
+                <a href="/deletar/turma/{{reg.id}}" class="btn btn-danger">Apagar</a> /
+                <a href="/visualizar/turma/{{reg.id}}" class="btn btn-primary">Ver</a>
             </td>
         </tr>
         {% endfor %}

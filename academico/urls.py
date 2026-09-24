@@ -27,6 +27,13 @@ urlpatterns = [
     path("deletar/disciplina/<id>/",views.deletarDisciplina, name="deletar_disciplina"),
     path("visualizar/disciplina/<id>/",views.visualizarDisciplina, name="visualizar_disciplina"),
 
+    path("listar/departamento/",views.listarDepartamento, name="listagem_departamento"),
+    path("adicionar/departamento/",views.adicionarDepartamento, name="adicionar_departamento"),
+    path("editar/departamento/<id>/",views.editarDepartamento, name="editar_departamento"),
+    path("deletar/departamento/<id>/",views.deletarDepartamento, name="deletar_departamento"),
+    path("visualizar/departamento/<id>/",views.visualizarDepartamento, name="visualizar_departamento"),
+
+
 
 ]
 

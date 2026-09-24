@@ -1,7 +1,7 @@
 from django.http import request
 from django.shortcuts import render,redirect
-from academico.models import Curso, Professor, Turma, Disciplina
-from academico.forms import CursoForm, ProfessorForm, TurmaForm, DisciplinaForm
+from academico.models import Curso, Departamento, Professor, Turma, Disciplina
+from academico.forms import CursoForm, DepartamentoForm, ProfessorForm, TurmaForm, DisciplinaForm
 
 # Create your views here.
 def listarCurso(request):
@@ -166,6 +166,44 @@ def visualizarDisciplina(request, id=None):
      dicionario['disciplina'] = disciplina
      return render(request, 'visualizar_disciplina.html', dicionario)
 
+def listarDepartamento(request):
+   departamento = Departamento.objects.all()
+   dicionario = { 'registros': departamento }
+
+   return render(request, 'listagem_departamento.html',context=dicionario)
+
+def adicionarDepartamento(request):
+    dicionario={}
+    form = DepartamentoForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return redirect('/academico/listar/departamento')
+
+    dicionario['form'] = form
+    return render(request, 'adicionar_departamento.html',dicionario)
+
+def editarDepartamento(request, id=None):
+    departamento = Departamento.objects.get(pk=id)
+    form = DepartamentoForm(request.POST or None, request.FILES or None, instance=departamento)
+    if form.is_valid():
+        form.save()
+        return redirect('/academico/listar/departamento')
+
+    dicionario ={'form': form}
+    return render(request, 'editar_departamento.html',dicionario)
+
+def deletarDepartamento(request, id=None):
+    departamento = Departamento.objects.get(pk=id)
+   # if request.method == 'POST':
+    departamento.delete()
+    return redirect('/academico/listar/departamento')
+       # return render(request, 'deletar_departamento.html')
+
+def visualizarDepartamento(request, id=None):
+     dicionario = {}
+     departamento = Departamento.objects.get(pk=id)
+     dicionario['departamento'] = departamento
+     return render(request, 'visualizar_departamento.html', dicionario)           
        
        
 

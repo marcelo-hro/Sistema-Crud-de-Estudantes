@@ -1,5 +1,5 @@
 from django import forms 
-from .models import Curso, Professor, Turma, Disciplina
+from .models import Curso, Departamento, Professor, Turma, Disciplina
 
 class CursoForm(forms.ModelForm):
     class Meta:
@@ -54,3 +54,17 @@ class DisciplinaForm(forms.ModelForm):
         super(DisciplinaForm, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'   
+
+
+class DepartamentoForm(forms.ModelForm):
+    class Meta:
+        model = Departamento
+        fields = '__all__'
+         
+
+
+
+    def __init__(self, *args, **kwargs):
+        super(DepartamentoForm, self).__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'               

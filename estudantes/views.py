@@ -8,7 +8,7 @@ def listarEstudantes(request):
     estudantes = Estudante.objects.all()
     dicionario = { 'registros': estudantes }
 
-    return render(request, 'listagem.html',context=dicionario)
+    return render(request, 'estudantes/listagem.html',context=dicionario)
 
 
 
@@ -20,7 +20,7 @@ def AdicionarEstudantes(request):
         return redirect('/')
 
     dicionario['form'] = form
-    return render(request, 'adicionar.html',dicionario)
+    return render(request, 'estudantes/adicionar.html',dicionario)
 
 
 def EditarEstudantes(request, id=None):
@@ -31,7 +31,7 @@ def EditarEstudantes(request, id=None):
         return redirect('/')
 
     dicionario ={'form': form}
-    return render(request, 'editar.html',dicionario)
+    return render(request, 'estudantes/editar.html',dicionario)
 
 
 def DeletarEstudantes(request, id=None):
@@ -46,5 +46,5 @@ def VisualizarEstudantes(request, id=None):
      dicionario = {}
      estudante = Estudante.objects.get(pk=id)
      dicionario['estudante'] = estudante
-     return render(request, 'visualizar.html''', dicionario)
+     return render(request, 'estudantes/visualizar.html''', dicionario)
 

@@ -8,7 +8,7 @@ def listarCurso(request):
    curso = Curso.objects.all()
    dicionario = { 'registros': curso }
 
-   return render(request, 'listagem_curso.html',context=dicionario)
+   return render(request, 'academico/listagem_curso.html',context=dicionario)
 
 
 def AdicionarCurso(request):
@@ -16,7 +16,7 @@ def AdicionarCurso(request):
     form = CursoForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-        return redirect('/academico/listar/curso')
+        return redirect('listar/curso')
 
     dicionario['form'] = form
     return render(request, 'adicionar_curso.html',dicionario)
@@ -50,7 +50,7 @@ def listarProfessor(request):
    professor = Professor.objects.all()
    dicionario = { 'registros': professor }
 
-   return render(request, 'listagem_professor.html',context=dicionario)
+   return render(request, 'academico/listagem_professor.html',context=dicionario)
 
 def AdicionarProfessor(request):
     dicionario={}
@@ -91,7 +91,7 @@ def listarTurma(request):
    turma = Turma.objects.all()
    dicionario = { 'registros': turma }
 
-   return render(request, 'listagem_turma.html',context=dicionario)
+   return render(request, 'academico/listagem_turma.html',context=dicionario)
 
 def AdicionarTurma(request):
     dicionario={}
@@ -131,7 +131,7 @@ def listarDisciplina(request):
    disciplina = Disciplina.objects.all()
    dicionario = { 'registros': disciplina }
 
-   return render(request, 'listagem_disciplina.html',context=dicionario)
+   return render(request, 'academico/listagem_disciplina.html',context=dicionario)
 
 def adicionarDisciplina(request):
     dicionario={}
@@ -170,7 +170,7 @@ def listarDepartamento(request):
    departamento = Departamento.objects.all()
    dicionario = { 'registros': departamento }
 
-   return render(request, 'listagem_departamento.html',context=dicionario)
+   return render(request, 'academico/listagem_departamento.html',context=dicionario)
 
 def adicionarDepartamento(request):
     dicionario={}
